@@ -2,6 +2,7 @@
 package pe.cine.repository;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -32,4 +33,12 @@ public interface PeliculaRepository extends JpaRepository<Pelicula, Integer> {
     @Transactional
     @Query(value="DELETE FROM pelicula_genero WHERE fk_pelicula_id= :pelicula AND fk_genero_id= :genero",nativeQuery = true)
 	public void deletePelGen(@Param("pelicula") int pelicula,@Param("genero") int genero);
+	
+	@Modifying
+    @Transactional
+    @Query(value="INSERT INTO pelicula_genero(fk_pelicula_id, fk_genero_id) VALUES (:pelicula, :genero)",nativeQuery = true)
+	public void insertPelGen(@Param("pelicula") int pelicula,@Param("genero") int genero);
+    
+    @Query(value="SELECT fk_pelicula_id, fk_genero_id FROM pelicula_genero", nativeQuery=true)
+	List<?> listarPelGen();
 }
