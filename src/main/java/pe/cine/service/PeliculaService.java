@@ -52,6 +52,14 @@ public class PeliculaService {
 	public void deletePelGen(int pelicula, int genero) {
     	repository.deletePelGen(pelicula, genero);
     }
+	
+	public void insertPelGen(int pelicula, int genero) {
+    	repository.insertPelGen(pelicula, genero);
+    }
+    
+    public List<?> listarPelGen() {
+    	return repository.listarPelGen();
+    }
 
     public boolean existsById(int id){
         return repository.existsById(id);
