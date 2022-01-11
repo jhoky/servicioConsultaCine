@@ -303,7 +303,273 @@ public class CreatePrecios implements CommandLineRunner{
 	    	dia = diaService.getOne(7).get();
 	    	Precio_Boleteria prec56 = new Precio_Boleteria(28.30,dia,publico,sala,cine);
 	    	serv.save(prec56);
+			
+			//==============================================================================
+	    	//CINEPLANET --- 3D
+			cine = cineService.getOne(1).get();
+			sala = salaService.getOne(2).get();
+			
+			//GENERAL
+			publico = publicoService.getOne(1).get();
+			//LUNES
+			dia = diaService.getOne(1).get();
+	    	Precio_Boleteria prec57 = new Precio_Boleteria(35.0,dia,publico,sala,cine);
+	    	serv.save(prec57);
+	    	//MARTES
+	    	dia = diaService.getOne(2).get();
+	    	Precio_Boleteria prec58 = new Precio_Boleteria(22.0,dia,publico,sala,cine);
+	    	serv.save(prec58);
+	    	//MIERCOLES
+	    	dia = diaService.getOne(3).get();
+	    	Precio_Boleteria prec59 = new Precio_Boleteria(27.0,dia,publico,sala,cine);
+	    	serv.save(prec59);
+	    	//JUEVES
+	    	dia = diaService.getOne(4).get();
+	    	Precio_Boleteria prec60 = new Precio_Boleteria(35.0,dia,publico,sala,cine);
+	    	serv.save(prec60);
+	    	//VIERNES
+	    	dia = diaService.getOne(5).get();
+	    	Precio_Boleteria prec61 = new Precio_Boleteria(35.0,dia,publico,sala,cine);
+	    	serv.save(prec61);
+	    	//SÁBADO
+	    	dia = diaService.getOne(6).get();
+	    	Precio_Boleteria prec62 = new Precio_Boleteria(35.0,dia,publico,sala,cine);
+	    	serv.save(prec62);
+	    	//DOMINGO
+	    	dia = diaService.getOne(7).get();
+	    	Precio_Boleteria prec63 = new Precio_Boleteria(35.0,dia,publico,sala,cine);
+	    	serv.save(prec63);
 	    	
+	    	//NIÑOS Y ADULTOS MAYORES
+			publico = publicoService.getOne(2).get();
+	    	//LUNES
+	    	dia = diaService.getOne(1).get();
+	    	Precio_Boleteria pre64 = new Precio_Boleteria(33.0,dia,publico,sala,cine);
+	    	serv.save(pre64);
+	    	//MARTES
+	    	dia = diaService.getOne(2).get();
+	    	Precio_Boleteria prec65 = new Precio_Boleteria(22.0,dia,publico,sala,cine);
+	    	serv.save(prec65);
+	    	//MIERCOLES
+	    	dia = diaService.getOne(3).get();
+	    	Precio_Boleteria prec66 = new Precio_Boleteria(25.0,dia,publico,sala,cine);
+	    	serv.save(prec66);
+	    	//JUEVES
+	    	dia = diaService.getOne(4).get();
+	    	Precio_Boleteria prec67 = new Precio_Boleteria(33.0,dia,publico,sala,cine);
+	    	serv.save(prec67);
+	    	//VIERNES
+	    	dia = diaService.getOne(5).get();
+	    	Precio_Boleteria prec68 = new Precio_Boleteria(33.0,dia,publico,sala,cine);
+	    	serv.save(prec68);
+	    	//SÁBADO
+	    	dia = diaService.getOne(6).get();
+	    	Precio_Boleteria prec69 = new Precio_Boleteria(33.0,dia,publico,sala,cine);
+	    	serv.save(prec69);
+	    	//DOMINGO
+	    	dia = diaService.getOne(7).get();
+	    	Precio_Boleteria prec70 = new Precio_Boleteria(33.0,dia,publico,sala,cine);
+	    	serv.save(prec70);
+	    	
+	    	//CINESTAR --- 2D
+			cine = cineService.getOne(2).get();
+			sala = salaService.getOne(2).get();
+			
+			//GENERAL
+			publico = publicoService.getOne(1).get();
+			//LUNES
+			dia = diaService.getOne(1).get();
+	    	Precio_Boleteria prec71 = new Precio_Boleteria(16.0,dia,publico,sala,cine);
+	    	serv.save(prec71);
+	    	//MARTES
+	    	dia = diaService.getOne(2).get();
+	    	Precio_Boleteria prec72 = new Precio_Boleteria(12.50,dia,publico,sala,cine);
+	    	serv.save(prec72);
+	    	//MIERCOLES
+	    	dia = diaService.getOne(3).get();
+	    	Precio_Boleteria prec73 = new Precio_Boleteria(12.50,dia,publico,sala,cine);
+	    	serv.save(prec73);
+	    	//JUEVES
+	    	dia = diaService.getOne(4).get();
+	    	Precio_Boleteria prec74 = new Precio_Boleteria(14.50,dia,publico,sala,cine);
+	    	serv.save(prec74);
+	    	//VIERNES
+	    	dia = diaService.getOne(5).get();
+	    	Precio_Boleteria prec75 = new Precio_Boleteria(16.0,dia,publico,sala,cine);
+	    	serv.save(prec75);
+	    	//SÁBADO
+	    	dia = diaService.getOne(6).get();
+	    	Precio_Boleteria prec76 = new Precio_Boleteria(15.50,dia,publico,sala,cine);
+	    	serv.save(prec76);
+	    	//DOMINGO
+	    	dia = diaService.getOne(7).get();
+	    	Precio_Boleteria prec77 = new Precio_Boleteria(15.50,dia,publico,sala,cine);
+	    	serv.save(prec77);
+	    	
+	    	//NIÑOS Y ADULTOS MAYORES
+			publico = publicoService.getOne(2).get();
+	    	//LUNES
+	    	dia = diaService.getOne(1).get();
+	    	Precio_Boleteria prec78 = new Precio_Boleteria(15.0,dia,publico,sala,cine);
+	    	serv.save(prec78);
+	    	//MARTES
+	    	dia = diaService.getOne(2).get();
+	    	Precio_Boleteria prec79 = new Precio_Boleteria(12.50,dia,publico,sala,cine);
+	    	serv.save(prec79);
+	    	//MIERCOLES
+	    	dia = diaService.getOne(3).get();
+	    	Precio_Boleteria prec80 = new Precio_Boleteria(12.50,dia,publico,sala,cine);
+	    	serv.save(prec80);
+	    	//JUEVES
+	    	dia = diaService.getOne(4).get();
+	    	Precio_Boleteria prec81 = new Precio_Boleteria(12.50,dia,publico,sala,cine);
+	    	serv.save(prec81);
+	    	//VIERNES
+	    	dia = diaService.getOne(5).get();
+	    	Precio_Boleteria prec82 = new Precio_Boleteria(12.50,dia,publico,sala,cine);
+	    	serv.save(prec82);
+	    	//SÁBADO
+	    	dia = diaService.getOne(6).get();
+	    	Precio_Boleteria prec83 = new Precio_Boleteria(12.50,dia,publico,sala,cine);
+	    	serv.save(prec83);
+	    	//DOMINGO
+	    	dia = diaService.getOne(7).get();
+	    	Precio_Boleteria prec84 = new Precio_Boleteria(12.50,dia,publico,sala,cine);
+	    	serv.save(prec84);
+	    	
+	    	//CINÉPOLIS --- 2D
+			cine = cineService.getOne(4).get();
+			sala = salaService.getOne(2).get();
+			
+			//GENERAL
+			publico = publicoService.getOne(1).get();
+			//LUNES
+			dia = diaService.getOne(1).get();
+	    	Precio_Boleteria prec85 = new Precio_Boleteria(20.50,dia,publico,sala,cine);
+	    	serv.save(prec85);
+	    	//MARTES
+	    	dia = diaService.getOne(2).get();
+	    	Precio_Boleteria prec86 = new Precio_Boleteria(22.00,dia,publico,sala,cine);
+	    	serv.save(prec86);
+	    	//MIERCOLES
+	    	dia = diaService.getOne(3).get();
+	    	Precio_Boleteria prec87 = new Precio_Boleteria(20.50,dia,publico,sala,cine);
+	    	serv.save(prec87);
+	    	//JUEVES
+	    	dia = diaService.getOne(4).get();
+	    	Precio_Boleteria prec88 = new Precio_Boleteria(24.00,dia,publico,sala,cine);
+	    	serv.save(prec88);
+	    	//VIERNES
+	    	dia = diaService.getOne(5).get();
+	    	Precio_Boleteria prec89 = new Precio_Boleteria(24.0,dia,publico,sala,cine);
+	    	serv.save(prec89);
+	    	//SÁBADO
+	    	dia = diaService.getOne(6).get();
+	    	Precio_Boleteria prec90 = new Precio_Boleteria(24.00,dia,publico,sala,cine);
+	    	serv.save(prec90);
+	    	//DOMINGO
+	    	dia = diaService.getOne(7).get();
+	    	Precio_Boleteria prec91 = new Precio_Boleteria(24.00,dia,publico,sala,cine);
+	    	serv.save(prec91);
+	    	
+	    	//NIÑOS Y ADULTOS MAYORES
+			publico = publicoService.getOne(2).get();
+	    	//LUNES
+	    	dia = diaService.getOne(1).get();
+	    	Precio_Boleteria prec92 = new Precio_Boleteria(19.50,dia,publico,sala,cine);
+	    	serv.save(prec92);
+	    	//MARTES
+	    	dia = diaService.getOne(2).get();
+	    	Precio_Boleteria prec93 = new Precio_Boleteria(22.00,dia,publico,sala,cine);
+	    	serv.save(prec93);
+	    	//MIERCOLES
+	    	dia = diaService.getOne(3).get();
+	    	Precio_Boleteria prec94 = new Precio_Boleteria(19.50,dia,publico,sala,cine);
+	    	serv.save(prec94);
+	    	//JUEVES
+	    	dia = diaService.getOne(4).get();
+	    	Precio_Boleteria prec95 = new Precio_Boleteria(21.50,dia,publico,sala,cine);
+	    	serv.save(prec95);
+	    	//VIERNES
+	    	dia = diaService.getOne(5).get();
+	    	Precio_Boleteria prec96 = new Precio_Boleteria(21.50,dia,publico,sala,cine);
+	    	serv.save(prec96);
+	    	//SÁBADO
+	    	dia = diaService.getOne(6).get();
+	    	Precio_Boleteria prec97 = new Precio_Boleteria(21.50,dia,publico,sala,cine);
+	    	serv.save(prec97);
+	    	//DOMINGO
+	    	dia = diaService.getOne(7).get();
+	    	Precio_Boleteria prec98 = new Precio_Boleteria(21.50,dia,publico,sala,cine);
+	    	serv.save(prec98);
+	    	
+	    	//CINEMARK --- 2D
+			cine = cineService.getOne(3).get();
+			sala = salaService.getOne(2).get();
+			
+			//GENERAL
+			publico = publicoService.getOne(1).get();
+			//LUNES
+			dia = diaService.getOne(1).get();
+	    	Precio_Boleteria prec99 = new Precio_Boleteria(28.50,dia,publico,sala,cine);
+	    	serv.save(prec99);
+	    	//MARTES
+	    	dia = diaService.getOne(2).get();
+	    	Precio_Boleteria prec100 = new Precio_Boleteria(21.80,dia,publico,sala,cine);
+	    	serv.save(prec100);
+	    	//MIERCOLES
+	    	dia = diaService.getOne(3).get();
+	    	Precio_Boleteria prec101 = new Precio_Boleteria(28.50,dia,publico,sala,cine);
+	    	serv.save(prec101);
+	    	//JUEVES
+	    	dia = diaService.getOne(4).get();
+	    	Precio_Boleteria prec102 = new Precio_Boleteria(32.80,dia,publico,sala,cine);
+	    	serv.save(prec102);
+	    	//VIERNES
+	    	dia = diaService.getOne(5).get();
+	    	Precio_Boleteria prec103 = new Precio_Boleteria(32.80,dia,publico,sala,cine);
+	    	serv.save(prec103);
+	    	//SÁBADO
+	    	dia = diaService.getOne(6).get();
+	    	Precio_Boleteria prec104 = new Precio_Boleteria(34.80,dia,publico,sala,cine);
+	    	serv.save(prec104);
+	    	//DOMINGO
+	    	dia = diaService.getOne(7).get();
+	    	Precio_Boleteria prec105 = new Precio_Boleteria(33.80,dia,publico,sala,cine);
+	    	serv.save(prec105);
+	    	
+	    	//NIÑOS Y ADULTOS MAYORES
+			publico = publicoService.getOne(2).get();
+	    	//LUNES
+	    	dia = diaService.getOne(1).get();
+	    	Precio_Boleteria prec106 = new Precio_Boleteria(26.00,dia,publico,sala,cine);
+	    	serv.save(prec106);
+	    	//MARTES
+	    	dia = diaService.getOne(2).get();
+	    	Precio_Boleteria prec107 = new Precio_Boleteria(21.80,dia,publico,sala,cine);
+	    	serv.save(prec107);
+	    	//MIERCOLES
+	    	dia = diaService.getOne(3).get();
+	    	Precio_Boleteria prec108 = new Precio_Boleteria(26.00,dia,publico,sala,cine);
+	    	serv.save(prec108);
+	    	//JUEVES
+	    	dia = diaService.getOne(4).get();
+	    	Precio_Boleteria prec109 = new Precio_Boleteria(29.30,dia,publico,sala,cine);
+	    	serv.save(prec109);
+	    	//VIERNES
+	    	dia = diaService.getOne(5).get();
+	    	Precio_Boleteria prec110 = new Precio_Boleteria(29.30,dia,publico,sala,cine);
+	    	serv.save(prec110);
+	    	//SÁBADO
+	    	dia = diaService.getOne(6).get();
+	    	Precio_Boleteria prec111 = new Precio_Boleteria(32.30,dia,publico,sala,cine);
+	    	serv.save(prec111);
+	    	//DOMINGO
+	    	dia = diaService.getOne(7).get();
+	    	Precio_Boleteria prec112 = new Precio_Boleteria(31.30,dia,publico,sala,cine);
+	    	serv.save(prec112);
+	    	
+			
 	    }else {
 	    		System.out.println("Ya se han creado los precios");
 	    }
