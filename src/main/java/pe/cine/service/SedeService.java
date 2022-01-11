@@ -46,6 +46,14 @@ public class SedeService {
 	public void deleteSedSal(int sede, int sala) {
 		repository.deleteSedSal(sede, sala);
 	}
+	
+	public void insertSedSal(int sede, int sala) {
+    	repository.insertSedSal(sede, sala);;
+    }
+    
+    public List<?> listarSedSal() {
+    	return repository.listarSedSal();
+    }
 
     public boolean existsById(int id){
         return repository.existsById(id);
