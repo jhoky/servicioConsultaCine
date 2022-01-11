@@ -28,7 +28,7 @@ public class Cine implements Serializable {
 	@Column(nullable = false, columnDefinition = "boolean default 1")
 	private boolean estado;
 
-	@Column(nullable = false)
+	@Column
 	private String imagen_url_cine;
 
 	
