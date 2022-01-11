@@ -50,6 +50,22 @@ public class CineService{
     public void deleteCinPel(int cine, int pelicula) {
     	repository.deleteCinPel(cine, pelicula);
     }
+	
+	public void insertCinSed(int cine, int sede) {
+    	repository.insertCinSed(cine, sede);
+    }
+    
+    public void insertCinPel(int cine, int pelicula) {
+    	repository.insertCinPel(cine, pelicula);
+    }
+    
+    public List<?> listarCinSed() {
+    	return repository.listarCinSed();
+    }
+    
+    public List<?> listarCinPel() {
+    	return repository.listarCinPel();
+    }
 
     public boolean existsById(int id){
         return repository.existsById(id);
