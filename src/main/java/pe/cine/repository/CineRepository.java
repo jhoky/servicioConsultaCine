@@ -1,5 +1,6 @@
 package pe.cine.repository;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -30,5 +31,21 @@ public interface CineRepository extends JpaRepository<Cine, Integer>{
     @Transactional
     @Query(value="DELETE FROM cine_pelicula WHERE fk_cine_id= :cine AND fk_pelicula_id= :pelicula",nativeQuery = true)
 	public void deleteCinPel(@Param("cine") int cine,@Param("pelicula") int pelicula);
+	
+	@Modifying
+    @Transactional
+    @Query(value="INSERT INTO cine_sede(fk_cine_id, fk_sede_id) VALUES (:cine, :sede)",nativeQuery = true)
+	public void insertCinSed(@Param("cine") int cine,@Param("sede") int sede);
+    
+    @Modifying
+    @Transactional
+    @Query(value="INSERT INTO cine_pelicula(fk_cine_id, fk_pelicula_id) VALUES (:cine, :pelicula)",nativeQuery = true)
+	public void insertCinPel(@Param("cine") int cine,@Param("pelicula") int pelicula);
+    
+    @Query(value="SELECT fk_cine_id,fk_sede_id FROM cine_sede", nativeQuery=true)
+	List<?> listarCinSed();
+    
+    @Query(value="SELECT fk_cine_id,fk_pelicula_id FROM cine_pelicula", nativeQuery=true)
+	List<?> listarCinPel();
 	
 }
