@@ -1,6 +1,7 @@
 package pe.cine.repository;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -31,6 +32,14 @@ public interface SedeRepository extends JpaRepository<Sede, Integer> {
     
     @Query(value = "select tp.nombre from sede_tipo_sala st inner join tipo_sala tp on st.tipo_sala_id = tp.tipo_sala_id inner join sede s on st.sede_id = s.sede_id  where s.sede_id = ?1",nativeQuery = true)
     ArrayList<String> buscartiposala(int idsede);
+	
+	@Modifying
+    @Transactional
+    @Query(value="INSERT INTO sede_tipo_sala(sede_id, tipo_sala_id) VALUES (:sede, :sala)",nativeQuery = true)
+	public void insertSedSal(@Param("sede") int sede,@Param("sala") int sala);
+    
+    @Query(value="SELECT sede_id, tipo_sala_id FROM sede_tipo_sala", nativeQuery=true)
+	List<?> listarSedSal();
     
 
 }
