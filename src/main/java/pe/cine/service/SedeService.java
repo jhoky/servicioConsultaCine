@@ -48,7 +48,7 @@ public class SedeService {
 	}
 	
 	public void insertSedSal(int sede, int sala) {
-    	repository.insertSedSal(sede, sala);;
+    	repository.insertSedSal(sede, sala);
     }
     
     public List<?> listarSedSal() {
