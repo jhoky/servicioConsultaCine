@@ -12,14 +12,15 @@ import pe.cine.model.Precio_Boleteria;
 @Repository
 public interface PrecioBoleteriaRepository extends JpaRepository<Precio_Boleteria, Integer> {
   
-  @Query(value="SELECT * FROM Precio_Boleteria p WHERE p.fk_cine_id= :cine AND p.fk_dia_id= :dia AND p.fk_tipo_sala_id= :sala",nativeQuery = true)
-	public List<Precio_Boleteria> buscarFiltro(@Param("cine") int cine,@Param("dia") int dia, @Param("sala") int sala);
+  @Query(value="SELECT * FROM Precio_Boleteria p WHERE p.fk_cine_id= :cine AND p.fk_tipo_publico_id= :publico AND p.fk_tipo_sala_id= :sala ORDER BY p.fk_dia_id ASC",nativeQuery = true)
+	public List<Precio_Boleteria> buscarFiltro(@Param("cine") int cine,@Param("publico") int publico, @Param("sala") int sala);
 	
 	
 
 	@Query(value = "select*from precio_boleteria where fk_cine_id=:cine_id order by fk_cine_id",nativeQuery = true )
 	public List<Precio_Boleteria> buscarprecioporcine(@Param("cine_id") int cine_id);
 	
-	
+	@Query(value="SELECT precio FROM precio_boleteria WHERE fk_cine_id= :cine AND fk_dia_id= :dia AND fk_tipo_publico_id= :publico AND fk_tipo_sala_id= :sala", nativeQuery=true)
+	List<?> listarPrecio(@Param("cine") int cine, @Param("dia") int dia, @Param("publico") int publico, @Param("sala") int sala);
 
 }
