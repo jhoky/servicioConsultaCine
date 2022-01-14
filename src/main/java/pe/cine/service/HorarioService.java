@@ -1,5 +1,6 @@
 package pe.cine.service;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -23,8 +24,8 @@ public class HorarioService {
         return repository.findAll();
     }
 	
-	public List<Horario> listarFiltros(int cine, int pelicula, String fech){
-        return repository.buscarFiltro(pelicula, cine, fech);
+	public List<Horario> listarFiltros(int cine, int pelicula, Date fech){
+        return repository.buscarFiltro(cine, pelicula, fech);
     }
 	
 	public List<?> listarHoras(int cine, int pelicula, LocalDate fecha, String hora){
