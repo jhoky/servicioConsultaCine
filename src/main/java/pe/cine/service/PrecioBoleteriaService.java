@@ -22,9 +22,13 @@ public class PrecioBoleteriaService {
         return repository.findAll();
     }
 	
-	public List<Precio_Boleteria> listarFiltros(int cine, int dia, int sala){
-        return repository.buscarFiltro(cine, dia, sala);
+	public List<Precio_Boleteria> listarFiltros(int cine, int publico, int sala){
+        return repository.buscarFiltro(cine, publico, sala);
     }
+	
+	public List<?> listarPrecio(int cine, int dia, int publico, int sala) {
+		return repository.listarPrecio(cine, dia, publico, sala);
+	}
 
     public Optional<Precio_Boleteria> getOne(int id){
         return repository.findById(id);
