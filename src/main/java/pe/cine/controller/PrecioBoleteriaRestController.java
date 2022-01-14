@@ -37,10 +37,10 @@ public class PrecioBoleteriaRestController {
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 	
-	@GetMapping("/lista/{cine}/{dia}/{sala}")
+	@GetMapping("/lista/{cine}/{publico}/{sala}")
 	@ApiOperation(value = "Realiza un Listado de Todos los Precios Según los Filtros",httpMethod = "GET",nickname = "Listar Precios Por Filtros")
-    public ResponseEntity<List<Precio_Boleteria>> listF(@PathVariable("cine") int cine, @PathVariable("dia") int dia, @PathVariable("sala") int sala){
-        List<Precio_Boleteria> list = serv.listarFiltros(cine, dia, sala);
+    public ResponseEntity<List<Precio_Boleteria>> listF(@PathVariable("cine") int cine, @PathVariable("publico") int publico, @PathVariable("sala") int sala){
+        List<Precio_Boleteria> list = serv.listarFiltros(cine, publico, sala);
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
@@ -58,6 +58,11 @@ public class PrecioBoleteriaRestController {
     public ResponseEntity<?> create(@Valid @RequestBody Precio_Boleteria precio_boleteria){
     	if(precio_boleteria.getPrecio()<=0)
     		return new ResponseEntity<>(new Mensaje("El Precio Debe Ser Mayor A 0"), HttpStatus.BAD_REQUEST);
+	    if(!serv.listarPrecio(precio_boleteria.getCine().getCine_id(), precio_boleteria.getDia().getDia_id(),
+    			precio_boleteria.getTipo_publico().getTipo_publico_id(), precio_boleteria.getTipo_sala().getTipo_sala_id()).isEmpty()) {
+    		
+    		return new ResponseEntity<>(new Mensaje("Ya Existe Ese Registro"), HttpStatus.BAD_REQUEST);
+    	}
         serv.save(precio_boleteria);
         return new ResponseEntity<>(new Mensaje("Precio Creado"), HttpStatus.OK);
     }
@@ -74,7 +79,7 @@ public class PrecioBoleteriaRestController {
         precio_boleteria.setTipo_sala(newprecio_boleteria.getTipo_sala());
         precio_boleteria.setCine(newprecio_boleteria.getCine());
         serv.save(precio_boleteria);
-        return new ResponseEntity<>(new Mensaje("Precio Actualizada"), HttpStatus.OK);
+        return new ResponseEntity<>(new Mensaje("Precio Actualizado"), HttpStatus.OK);
     }
     
     @DeleteMapping("/delete/{id}")
