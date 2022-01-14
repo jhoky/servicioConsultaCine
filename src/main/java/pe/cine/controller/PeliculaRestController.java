@@ -104,6 +104,16 @@ public class PeliculaRestController {
         serv.save(pelicula);
         return new ResponseEntity(new Mensaje("Imagen Subida"), HttpStatus.OK);
     }
+	
+	@PostMapping("/validarimg")
+    @ApiOperation(value = "Valida si el Archivo es una Imagen",httpMethod = "POST",nickname = "Validar Imagen")
+    public Boolean validarImagen(@RequestParam MultipartFile multipartFile) throws IOException {
+        BufferedImage bi = ImageIO.read(multipartFile.getInputStream());
+        if(bi == null){
+            return false;
+        }
+        return true;
+    }
 
     @PutMapping("/update/{id}")
     @ApiOperation(value = "Actualiza los Campos de la Película",httpMethod = "PUT",nickname = "Actualizar Película")
