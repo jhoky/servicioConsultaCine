@@ -1,5 +1,6 @@
 package pe.cine.controller;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -39,7 +40,7 @@ public class HorarioRestController {
 	
 	@GetMapping("/lista/{cine}/{pelicula}/{fech}")
 	@ApiOperation(value = "Realiza un Listado de Todos los Horarios Según los Filtros",httpMethod = "GET",nickname = "Listar Horarios Por Filtros")
-    public ResponseEntity<List<Horario>> listF(@PathVariable("cine") int cine, @PathVariable("pelicula") int pelicula, @PathVariable("fech") String fech){
+    public ResponseEntity<List<Horario>> listF(@PathVariable("cine") int cine, @PathVariable("pelicula") int pelicula, @PathVariable("fech") Date fech){
         List<Horario> list = serv.listarFiltros(cine, pelicula, fech);
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
