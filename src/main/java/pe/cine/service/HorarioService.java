@@ -1,5 +1,6 @@
 package pe.cine.service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,6 +26,10 @@ public class HorarioService {
 	public List<Horario> listarFiltros(int cine, int pelicula, String fech){
         return repository.buscarFiltro(pelicula, cine, fech);
     }
+	
+	public List<?> listarHoras(int cine, int pelicula, LocalDate fecha, String hora){
+		return repository.listarHoras(cine, pelicula, fecha, hora);
+	}
 
     public Optional<Horario> getOne(int id){
         return repository.findById(id);
