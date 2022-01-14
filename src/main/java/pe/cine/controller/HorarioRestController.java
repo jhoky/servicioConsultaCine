@@ -56,6 +56,9 @@ public class HorarioRestController {
     @PostMapping("/create")
     @ApiOperation(value = "Realiza el Registro del Horario",httpMethod = "POST",nickname = "Registro Horario")
     public ResponseEntity<?> create(@Valid @RequestBody Horario horario){
+	    if(!serv.listarHoras(horario.getCine().getCine_id(), horario.getPelicula().getPelicula_id(), horario.getFecha(), horario.getHora_inicio()).isEmpty()) {
+    		return new ResponseEntity<>(new Mensaje("Ya Existe Ese Registro"), HttpStatus.BAD_REQUEST);
+    	}
     	horario.setEstado(true);
         serv.save(horario);
         return new ResponseEntity<>(new Mensaje("Horario Creado"), HttpStatus.OK);
@@ -64,6 +67,9 @@ public class HorarioRestController {
     @PutMapping("/update/{id}")
     @ApiOperation(value = "Actualiza los Campos del Horario",httpMethod = "PUT",nickname = "Actualizar Horario")
     public ResponseEntity<?> update(@PathVariable("id")int id, @RequestBody Horario newhorario){
+	    if(!serv.listarHoras(newhorario.getCine().getCine_id(), newhorario.getPelicula().getPelicula_id(), newhorario.getFecha(), newhorario.getHora_inicio()).isEmpty()) {
+    		return new ResponseEntity<>(new Mensaje("Ya Existe Ese Registro"), HttpStatus.BAD_REQUEST);
+    	}
         Horario horario = serv.getOne(id).get();
         horario.setFecha(newhorario.getFecha());
         horario.setHora_inicio(newhorario.getHora_inicio());
