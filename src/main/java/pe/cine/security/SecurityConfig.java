@@ -65,24 +65,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				//GET
 				.antMatchers(HttpMethod.GET,"/distrito/**","/dia/**","/clasificacion/**","/director/**","/genero/**","/pelicula/**"
 						,"/peliculagenero/**","/tiposala/**","/sede/**","/sedetiposala/**","/cine/**","/cinesede/**"
-						,"/cinepelicula/**","/horario/**","/tipopublico/**","/precioboleteria/**","/valoracion/**").permitAll()
+						,"/cinepelicula/**","/horario/**","/tipopublico/**","/precioboleteria/**","/valoracion/**","/descuento/**").permitAll()
 				.antMatchers(HttpMethod.GET, "/auth/**").hasAnyAuthority("ROLE_SUPADMIN")
 				//POST
 				.antMatchers(HttpMethod.POST, "/distrito/**","/dia/**","/clasificacion/**","/director/**","/genero/**","/pelicula/**"
 						,"/peliculagenero/**","/tiposala/**","/sede/**","/sedetiposala/**","/cine/**","/cinesede/**"
 						,"/cinepelicula/**","/horario/**","/tipopublico/**","/precioboleteria/**").hasAnyAuthority("ROLE_SUPADMIN","ROLE_ADMIN")
-				.antMatchers(HttpMethod.POST, "/valoracion/**").hasAnyAuthority("ROLE_SUPADMIN","ROLE_ADMIN","ROLE_USER")
+				.antMatchers(HttpMethod.POST, "/valoracion/**", "/descuento/**").hasAnyAuthority("ROLE_SUPADMIN","ROLE_ADMIN","ROLE_USER")
 				.antMatchers(HttpMethod.POST, "/auth/nuevo").hasAnyAuthority("ROLE_SUPADMIN")
 				//PUT
 				.antMatchers(HttpMethod.PUT, "/distrito/**","/dia/**","/clasificacion/**","/director/**","/genero/**","/pelicula/**"
 						,"/peliculagenero/**","/tiposala/**","/sede/**","/sedetiposala/**","/cine/**","/cinesede/**"
 						,"/cinepelicula/**","/horario/**","/tipopublico/**","/precioboleteria/**").hasAnyAuthority("ROLE_SUPADMIN","ROLE_ADMIN")
-				.antMatchers(HttpMethod.PUT, "/valoracion/**").hasAnyAuthority("ROLE_SUPADMIN","ROLE_ADMIN","ROLE_USER")
+				.antMatchers(HttpMethod.PUT, "/valoracion/**", "/descuento/**").hasAnyAuthority("ROLE_SUPADMIN","ROLE_ADMIN","ROLE_USER")
 				.antMatchers(HttpMethod.PUT, "/auth/**").hasAnyAuthority("ROLE_SUPADMIN")
 				//DELETE
 				.antMatchers(HttpMethod.DELETE,"/distrito/**","/dia/**","/clasificacion/**","/director/**","/genero/**","/pelicula/**"
 						,"/peliculagenero/**","/tiposala/**","/sede/**","/sedetiposala/**","/cine/**","/cinesede/**"
-						,"/cinepelicula/**","/horario/**","/tipopublico/**","/precioboleteria/**","/valoracion/**","/auth/**").hasAnyAuthority("ROLE_SUPADMIN")
+						,"/cinepelicula/**","/horario/**","/tipopublico/**","/precioboleteria/**","/valoracion/**","/auth/**","/descuento/**").hasAnyAuthority("ROLE_SUPADMIN")
 				.and()
 				.exceptionHandling().authenticationEntryPoint(jwtEntryPoint)
 				.and()
