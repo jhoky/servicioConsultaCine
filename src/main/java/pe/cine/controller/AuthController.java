@@ -196,5 +196,36 @@ public class AuthController {
 		JwtDto jwt = new JwtDto(token);
 		return new ResponseEntity<>(jwt, HttpStatus.OK);
 	}
+	
+	@PostMapping("/loginusuario")
+	@ApiOperation(value = "valida el usuario",httpMethod = "POST",nickname = "loginmovil")
+	public JwtDto loginusuario(@Valid @RequestBody NuevoUsuario loginUsuario) {
+		Authentication authentication = authenticationManager.authenticate(
+				new UsernamePasswordAuthenticationToken(loginUsuario.getNombreUsuario(), loginUsuario.getPassword()));
+		SecurityContextHolder.getContext().setAuthentication(authentication);
+		String jwt = jwtProvider.generateToken(authentication);
+		JwtDto jwtDto = new JwtDto(jwt); 
+		return  jwtDto;
+	}
+	
+	@PostMapping("/buscarusuario")
+	@ApiOperation(value = "Busca al usuario ",httpMethod = "GET",nickname = "buscarusuario")
+	public ResponseEntity<?> buscarusuario(@RequestBody NuevoUsuario usuario, BindingResult bindingResult){
+		NuevoUsuario nusu = new NuevoUsuario();
+		nusu.setNombre(usuario.getNombre());
+		nusu.setEmail(usuario.getEmail());
+		nusu.setNombreUsuario(usuario.getNombreUsuario());
+		nusu.setPassword(usuario.getPassword());
+		
+		if (!usuarioService.existsByEmail(usuario.getEmail())) {
+			nuevoUsuario(usuario, bindingResult);
+			JwtDto token = loginusuario(nusu);
+			return new ResponseEntity<>(token, HttpStatus.OK);
+		}
+		
+		JwtDto token = loginusuario(nusu);
+		return new ResponseEntity<>(token, HttpStatus.OK);
+		
+	}
 
 }
