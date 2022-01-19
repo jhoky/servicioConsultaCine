@@ -45,6 +45,10 @@ public class UsuarioService {
 	public void save(Usuario usuario) {
 		repository.save(usuario);
 	}
-
+	
+	public Usuario buscarporemail(String email) {
+		return repository.buscarporemail(email);
+	}
+	
 
 }
