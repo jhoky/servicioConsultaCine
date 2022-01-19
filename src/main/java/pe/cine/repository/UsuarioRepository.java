@@ -20,4 +20,9 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
 			+ "join usuario.roles rol "
 			+ "where rol.rolNombre = 'ROLE_ADMIN'")
 	List<Usuario> lista();
+	
+	@Query(value = "select * from usuario where email = ?1",nativeQuery = true)
+	Usuario buscarporemail(String email);
+	
+	
 }
