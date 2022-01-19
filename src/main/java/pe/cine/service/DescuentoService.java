@@ -38,5 +38,10 @@ public class DescuentoService {
     public boolean existsById(int id){
         return repository.existsById(id);
     }
+	
+public CodigoDescuento buscarcodigo(String email){
+        return repository.buscarcodigodescuento(email);
+    }
+	
 
 }
