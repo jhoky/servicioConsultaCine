@@ -75,5 +75,27 @@ public class DescuentoController {
         serv.delete(id);
         return new ResponseEntity<>(new Mensaje("Código de Descuento Eliminado"), HttpStatus.OK);
     }
+	
+	
+    @GetMapping("/buscarcodigo/{email}")
+    @ApiOperation(value = "Detalle del Código de Descuento Según el ID",httpMethod = "GET",nickname = "Detalle Código Descuento")
+    public ResponseEntity<?> buscarcodigodescuento(@PathVariable("email") String email){
+    	
+    	
+    	Usuario usu = userv.buscarporemail(email);
+    	
+    	CodigoDescuento cd = serv.buscarcodigo(email);
+    	
+    	if (cd == null) {
+			
+			int aleatorio = (int) (10000 + Math.random() * 90000);
+			CodigoDescuento cnuevo = new CodigoDescuento(aleatorio,usu);
+			serv.save(cnuevo);
+			return new ResponseEntity<>(cnuevo, HttpStatus.OK);				
+		}
+        
+        return new ResponseEntity<>(cd, HttpStatus.OK);
+    }	
+	
 
 }
