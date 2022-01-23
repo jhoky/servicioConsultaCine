@@ -64,6 +64,14 @@ public class AuthController {
 		List<Usuario> list = usuarioService.lista();
 		return new ResponseEntity<>(list, HttpStatus.OK);
 	}
+	
+	@GetMapping("/obtenerNombre/{nombreUsuario}")
+	@ApiOperation(value = "Obtiene el Nombre del Usuario", httpMethod = "GET", nickname = "Obtener Nombre de Usuario")
+	public ResponseEntity<?> obtenerNombre(@PathVariable("nombreUsuario") String nombreUsuario) {
+		Usuario usuario= usuarioService.getByUsuario(nombreUsuario).get();
+		String nombre= usuario.getNombre();
+		return new ResponseEntity<>(nombre, HttpStatus.OK);
+	}
 
 	@PostMapping("/nuevo")
 	@ApiOperation(value = "Realiza el Registro del Nuevo Usuario Administrador", httpMethod = "POST", nickname = "Nuevo Usuario Administrador")
