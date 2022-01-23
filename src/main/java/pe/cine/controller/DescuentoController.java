@@ -20,7 +20,9 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.annotations.ApiOperation;
 import pe.cine.dto.security.Mensaje;
 import pe.cine.model.CodigoDescuento;
+import pe.cine.model.Usuario;
 import pe.cine.service.DescuentoService;
+import pe.cine.service.UsuarioService;
 
 @RestController
 @RequestMapping("/descuento")
@@ -29,6 +31,9 @@ public class DescuentoController {
 	
 	@Autowired
 	private DescuentoService serv;
+	
+	@Autowired
+	private UsuarioService userv;
 	
 	@GetMapping("/lista")
 	@ApiOperation(value = "Realiza un Listado de Todos los Códigos de Descuento",httpMethod = "GET",nickname = "Listar Códigos Descuentos")
