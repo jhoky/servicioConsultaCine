@@ -66,6 +66,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers(HttpMethod.GET,"/distrito/**","/dia/**","/clasificacion/**","/director/**","/genero/**","/pelicula/**"
 						,"/peliculagenero/**","/tiposala/**","/sede/**","/sedetiposala/**","/cine/**","/cinesede/**"
 						,"/cinepelicula/**","/horario/**","/tipopublico/**","/precioboleteria/**","/valoracion/**","/descuento/**").permitAll()
+				.antMatchers(HttpMethod.GET,"/auth/obtenerNombre/**").hasAnyAuthority("ROLE_SUPADMIN","ROLE_ADMIN")
 				.antMatchers(HttpMethod.GET, "/auth/**").hasAnyAuthority("ROLE_SUPADMIN")
 				//POST
 				.antMatchers(HttpMethod.POST, "/distrito/**","/dia/**","/clasificacion/**","/director/**","/genero/**","/pelicula/**"
