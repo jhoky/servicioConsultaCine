@@ -85,6 +85,8 @@ public class SedeRestController {
     		return new ResponseEntity<>(new Mensaje("La Ubicación Es Demasiada Larga"), HttpStatus.BAD_REQUEST);
     	if(sede.getCantidad_salas()<=0)
     		return new ResponseEntity<>(new Mensaje("La Cantidad De Salas Debe Ser Mayor A 0"), HttpStatus.BAD_REQUEST);
+    	if(!sede.getUbicacion().contains(","))
+    		return new ResponseEntity<>(new Mensaje("Coordenadas Incorrectas"), HttpStatus.BAD_REQUEST);
     	sede.setEstado(true);
         serv.save(sede);
         return new ResponseEntity<>(new Mensaje("Sede Creada"), HttpStatus.OK);
@@ -121,6 +123,8 @@ public class SedeRestController {
     		return new ResponseEntity<>(new Mensaje("La Ubicación Es Demasiada Larga"), HttpStatus.BAD_REQUEST);
     	if(newsede.getCantidad_salas()<=0)
     		return new ResponseEntity<>(new Mensaje("La Cantidad De Salas Debe Ser Mayor A 0"), HttpStatus.BAD_REQUEST);
+    	if(!sede.getUbicacion().contains(","))
+    		return new ResponseEntity<>(new Mensaje("Coordenadas Incorrectas"), HttpStatus.BAD_REQUEST);
         Sede sede = serv.getOne(id).get();
         sede.setNombre(newsede.getNombre());
         sede.setDireccion(newsede.getDireccion());
