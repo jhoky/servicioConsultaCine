@@ -18,6 +18,14 @@ public class SedeService {
 
     @Autowired
     private SedeRepository repository;
+	
+	public List<Sede> listDesc() {
+		return repository.listDesc();
+	}
+	
+	public List<Sede> listActivos() {
+		return repository.listActivos();
+	}
 
     public List<Sede> list(){
         return repository.findAll();
