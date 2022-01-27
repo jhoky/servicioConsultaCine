@@ -41,6 +41,20 @@ public class SedeRestController {
 	@Autowired
 	private CloudinaryService cloudinaryService;
 	
+	@GetMapping("/listaDesc")
+	@ApiOperation(value = "Realiza un Listado Descendente de Todas las Sedes",httpMethod = "GET",nickname = "Lista Descendente Sedes")
+    public ResponseEntity<List<Sede>> listDesc(){
+        List<Sede> list = serv.listDesc();
+        return new ResponseEntity<>(list, HttpStatus.OK);
+    }
+	
+	@GetMapping("/listActivos")
+	@ApiOperation(value = "Realiza un Listado de Todas las Sedes Activas",httpMethod = "GET",nickname = "Lista Sedes Activas")
+    public ResponseEntity<List<Sede>> listActivos(){
+        List<Sede> list = serv.listActivos();
+        return new ResponseEntity<>(list, HttpStatus.OK);
+    }
+	
 	@GetMapping("/lista")
 	@ApiOperation(value = "Realiza un Listado de Todas las Sedes",httpMethod = "GET",nickname = "Listar Sedes")
     public ResponseEntity<List<Sede>> list(){
