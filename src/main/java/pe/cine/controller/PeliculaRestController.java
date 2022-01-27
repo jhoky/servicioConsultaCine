@@ -42,6 +42,20 @@ public class PeliculaRestController {
 	
 	@Autowired
 	private CloudinaryService cloudinaryService;
+	
+	@GetMapping("/listaActivos")
+	@ApiOperation(value = "Realiza un Listado de Todas las Películas Activas",httpMethod = "GET",nickname = "Listar Películas Activas")
+    public ResponseEntity<List<Pelicula>> listActivos(){
+        List<Pelicula> list = serv.listActivos();
+        return new ResponseEntity<>(list, HttpStatus.OK);
+    }
+	
+	@GetMapping("/listaDesc")
+	@ApiOperation(value = "Realiza un Listado Descendente de Todas las Películas",httpMethod = "GET",nickname = "Lista Descendente Películas")
+    public ResponseEntity<List<Pelicula>> listDesc(){
+        List<Pelicula> list = serv.listDesc();
+        return new ResponseEntity<>(list, HttpStatus.OK);
+    }
 
 	@GetMapping("/lista")
 	@ApiOperation(value = "Realiza un Listado de Todas las Películas",httpMethod = "GET",nickname = "Listar Películas")
