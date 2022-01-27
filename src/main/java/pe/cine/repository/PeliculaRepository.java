@@ -41,4 +41,10 @@ public interface PeliculaRepository extends JpaRepository<Pelicula, Integer> {
     
     @Query(value="SELECT fk_pelicula_id, fk_genero_id FROM pelicula_genero", nativeQuery=true)
 	List<?> listarPelGen();
+	
+	@Query(value="SELECT * FROM pelicula WHERE estado=true ORDER BY pelicula.nombre ASC", nativeQuery=true)
+	List<Pelicula> listActivos();
+    
+    @Query(value="SELECT * FROM pelicula ORDER BY pelicula_id DESC", nativeQuery=true)
+	List<Pelicula> listDesc();
 }
