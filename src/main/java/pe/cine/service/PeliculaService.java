@@ -24,6 +24,14 @@ public class PeliculaService {
 	@Autowired
 	private HorarioRepository repositoryhorario;
 	
+	public List<Pelicula> listActivos(){
+        return repository.listActivos();
+    }
+	
+	public List<Pelicula> listDesc(){
+        return repository.listDesc();
+    }
+	
 
 	public List<Pelicula> list(){
         return repository.findAll();
