@@ -30,6 +30,13 @@ public class DirectorRestController {
 
 	@Autowired
 	private DirectorService serv;
+	
+	@GetMapping("/listaDesc")
+	@ApiOperation(value = "Realiza un Listado Descendente de Todos los Directores",httpMethod = "GET",nickname = "Lista Descendente Directores")
+    public ResponseEntity<List<Director>> listDesc(){
+        List<Director> list = serv.listDesc();
+        return new ResponseEntity<>(list, HttpStatus.OK);
+    }
 
 	@GetMapping("/lista")
 	@ApiOperation(value = "Realiza un Listado de Todos los Directores",httpMethod = "GET",nickname = "Listar Directores")
