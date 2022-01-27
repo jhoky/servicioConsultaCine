@@ -40,6 +40,12 @@ public interface SedeRepository extends JpaRepository<Sede, Integer> {
     
     @Query(value="SELECT sede_id, tipo_sala_id FROM sede_tipo_sala", nativeQuery=true)
 	List<?> listarSedSal();
+	
+	@Query(value="SELECT * FROM sede WHERE estado=true ORDER BY sede.nombre ASC", nativeQuery=true)
+	List<Sede> listActivos();
+    
+    @Query(value="SELECT * FROM sede ORDER BY sede_id DESC", nativeQuery=true)
+	List<Sede> listDesc();
     
 
 }
