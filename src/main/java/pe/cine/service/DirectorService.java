@@ -18,6 +18,10 @@ public class DirectorService {
 	@Autowired
 	private DirectorRepository repository;
 	
+	public List<Director> listNombreAsc(){
+        return repository.listNombreAsc();
+    }
+	
 	public List<Director> listDesc(){
         return repository.listDesc();
     }
