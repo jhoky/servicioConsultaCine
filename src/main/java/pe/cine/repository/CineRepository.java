@@ -48,4 +48,7 @@ public interface CineRepository extends JpaRepository<Cine, Integer>{
     @Query(value="SELECT fk_cine_id,fk_pelicula_id FROM cine_pelicula", nativeQuery=true)
 	List<?> listarCinPel();
 	
+	@Query(value="SELECT * FROM cine WHERE estado=true ORDER BY cine.nombre ASC", nativeQuery=true)
+	List<Cine> listActivos();
+	
 }
