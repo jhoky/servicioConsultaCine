@@ -16,5 +16,8 @@ public interface DirectorRepository extends JpaRepository<Director, Integer> {
     boolean existsByNombre(String nombre);
 	@Query(value="SELECT * FROM director ORDER BY director_id DESC", nativeQuery=true)
 	List<Director> listDesc();
+	
+	@Query(value="SELECT * FROM director ORDER BY nombre ASC", nativeQuery=true)
+	List<Director> listNombreAsc();
 
 }
