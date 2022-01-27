@@ -41,6 +41,13 @@ public class CineRestController {
 	@Autowired
 	private CloudinaryService cloudinaryService;
 	
+	@GetMapping("/listaActivos")
+	@ApiOperation(value = "Realiza un Listado de Todos los Cines Activos",httpMethod = "GET",nickname = "Listar Cines Activos")
+    public ResponseEntity<List<Cine>> listActivos(){
+        List<Cine> list = serv.listActivos();
+        return new ResponseEntity<>(list, HttpStatus.OK);
+    }
+	
 	@GetMapping("/lista")
 	@ApiOperation(value = "Realiza un Listado de Todos los Cines",httpMethod = "GET",nickname = "Listar Cines")
     public ResponseEntity<List<Cine>> list(){
