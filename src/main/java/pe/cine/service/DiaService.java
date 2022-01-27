@@ -17,6 +17,10 @@ public class DiaService {
 
 	@Autowired
 	private DiaRepository repository;
+	
+	public List<Dia> listAsc(){
+        return repository.listAsc();
+    }
 
 	public List<Dia> list(){
         return repository.findAll();
