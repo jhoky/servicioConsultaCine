@@ -18,7 +18,7 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
 	@Query("select usuario "
 			+ "from Usuario usuario "
 			+ "join usuario.roles rol "
-			+ "where rol.rolNombre = 'ROLE_ADMIN'")
+			+ "where rol.rolNombre = 'ROLE_ADMIN' Order By usuario.usuario_id DESC")
 	List<Usuario> lista();
 	
 	@Query(value = "select * from usuario where email = ?1",nativeQuery = true)
