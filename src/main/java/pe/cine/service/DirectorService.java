@@ -17,6 +17,10 @@ public class DirectorService {
 
 	@Autowired
 	private DirectorRepository repository;
+	
+	public List<Director> listDesc(){
+        return repository.listDesc();
+    }
 
 	public List<Director> list(){
         return repository.findAll();
