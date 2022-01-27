@@ -30,6 +30,13 @@ public class DiaRestController {
 
 	@Autowired
 	private DiaService serv;
+	
+	@GetMapping("/listaAsc")
+	@ApiOperation(value = "Realiza un Listado de Todos los Días Ordenado Por ID Ascendente",httpMethod = "GET",nickname = "Listar Día Ordenado Por ID")
+    public ResponseEntity<List<Dia>> listAsc(){
+        List<Dia> list = serv.listAsc();
+        return new ResponseEntity<>(list, HttpStatus.OK);
+    }
 
 	@GetMapping("/lista")
 	@ApiOperation(value = "Realiza un Listado de Todos los Días",httpMethod = "GET",nickname = "Listar Día")
