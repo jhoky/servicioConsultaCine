@@ -17,6 +17,10 @@ public class CineService{
 	
 	@Autowired
 	private CineRepository repository;
+	
+	public List<Cine> listActivos(){
+        return repository.listActivos();
+    }
 
 	public List<Cine> list(){
         return repository.findAll();
