@@ -17,6 +17,10 @@ public class PrecioBoleteriaService {
 
 	@Autowired
 	private PrecioBoleteriaRepository repository;
+	
+	public List<Precio_Boleteria> listarPrecioCine(int cine){
+        return repository.listarPrecioCine(cine);
+    }
 
 	public List<Precio_Boleteria> list(){
         return repository.findAll();
