@@ -22,5 +22,8 @@ public interface PrecioBoleteriaRepository extends JpaRepository<Precio_Boleteri
 	
 	@Query(value="SELECT precio FROM precio_boleteria WHERE fk_cine_id= :cine AND fk_dia_id= :dia AND fk_tipo_publico_id= :publico AND fk_tipo_sala_id= :sala", nativeQuery=true)
 	List<?> listarPrecio(@Param("cine") int cine, @Param("dia") int dia, @Param("publico") int publico, @Param("sala") int sala);
+	
+	@Query(value="SELECT * FROM precio_boleteria p WHERE p.fk_cine_id= :cine ORDER BY p.precio_boleteria_id ASC",nativeQuery = true)
+	public List<Precio_Boleteria> listarPrecioCine(@Param("cine") int cine);
 
 }
