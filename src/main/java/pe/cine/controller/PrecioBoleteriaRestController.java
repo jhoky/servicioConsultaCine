@@ -29,6 +29,13 @@ public class PrecioBoleteriaRestController {
 
 	@Autowired
 	private PrecioBoleteriaService serv;
+	
+	@GetMapping("/listarPrecioCine/{cine}")
+	@ApiOperation(value = "Realiza un Listado de Todos los Precios Según el Cine",httpMethod = "GET",nickname = "Listar Precios Según Cine")
+    public ResponseEntity<List<Precio_Boleteria>> listarPrecioCine(@PathVariable("cine") int cine){
+        List<Precio_Boleteria> list = serv.listarPrecioCine(cine);
+        return new ResponseEntity<>(list, HttpStatus.OK);
+    }
 
 	@GetMapping("/lista")
 	@ApiOperation(value = "Realiza un Listado de Todos los Precios",httpMethod = "GET",nickname = "Listar Precios")
