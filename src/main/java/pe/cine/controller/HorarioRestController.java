@@ -30,6 +30,13 @@ public class HorarioRestController {
 	
 	@Autowired
 	HorarioService serv;
+	
+	@GetMapping("/listarHorarioCine/{cine}")
+	@ApiOperation(value = "Realiza un Listado de Todos los Horarios Según el Cine",httpMethod = "GET",nickname = "Listar Horarios Según Cine")
+    public ResponseEntity<List<Horario>> listarHorarioCine(@PathVariable("cine") int cine){
+        List<Horario> list = serv.listarHorarioCine(cine);
+        return new ResponseEntity<>(list, HttpStatus.OK);
+    }
 
 	@GetMapping("/lista")
 	@ApiOperation(value = "Realiza un Listado de Todos los Horarios",httpMethod = "GET",nickname = "Listar Horarios")
