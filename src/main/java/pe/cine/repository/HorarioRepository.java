@@ -24,6 +24,9 @@ public interface HorarioRepository extends JpaRepository<Horario, Integer> {
 	
 	@Query(value="SELECT hora_inicio FROM horario WHERE cine_id= :cine AND fk_pelicula_id= :pelicula AND fecha= :fecha AND hora_inicio= :hora", nativeQuery=true)
 	List<?> listarHoras(@Param("cine") int cine, @Param("pelicula") int pelicula, @Param("fecha") LocalDate fecha, @Param("hora") String hora);
+	
+	@Query(value="SELECT * FROM horario h WHERE h.cine_id= :cine ORDER BY h.fecha, h.hora_inicio ASC; ",nativeQuery = true)
+	public List<Horario> listarHorarioCine(@Param("cine") int cine);
 
 
 }
